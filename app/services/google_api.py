@@ -3,13 +3,12 @@ from datetime import timedelta
 from aiogoogle import Aiogoogle
 from app.core.config import settings
 
-FORMAT = "%Y/%m/%d %H:%M:%S" 
+FORMAT = "%Y/%m/%d %H:%M:%S"
 
 
 async def spreadsheets_create(wrapper_services: Aiogoogle) -> str:
     now_date_time = datetime.now().strftime(FORMAT)
     service = await wrapper_services.discover('sheets', 'v4')
-    # Формируем тело запроса
     spreadsheet_body = {
         'properties': {'title': f'Отчет на {now_date_time}',
                        'locale': 'ru_RU'},
@@ -41,6 +40,7 @@ async def set_user_permissions(
             fields="id"
         ))
 
+
 async def spreadsheets_update_value(
         spreadsheetid: str,
         projects: list,
@@ -48,16 +48,13 @@ async def spreadsheets_update_value(
 ) -> None:
     now_date_time = datetime.now().strftime(FORMAT)
     service = await wrapper_services.discover('sheets', 'v4')
-    # Здесь формируется тело таблицы
     table_values = [
         ['Отчет от', now_date_time],
         ['Топ проектов по скорости закрытия'],
         ['Название проекта', 'Время сбора', 'Описание']
     ]
-    # Здесь в таблицу добавляются строчки
     for res in projects:
-        new_row = [str(res['name']), str(timedelta(res.lifetime)), str(res['description'])]
-        #str(timedelta(res['create_date']) - timedelta(res['close_date']))
+        new_row = [str(res['name']), str(timedelta(res.timedonat)), str(res['description'])]
         table_values.append(new_row)
 
     update_body = {
@@ -71,5 +68,4 @@ async def spreadsheets_update_value(
             valueInputOption='USER_ENTERED',
             json=update_body
         )
-    ) 
-
+    )

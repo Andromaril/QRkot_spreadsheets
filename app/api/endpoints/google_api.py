@@ -1,4 +1,3 @@
-from datetime import datetime
 from aiogoogle import Aiogoogle
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -12,6 +11,7 @@ from app.services.google_api import spreadsheets_create, spreadsheets_update_val
 
 
 router = APIRouter()
+
 
 @router.post(
     '/',

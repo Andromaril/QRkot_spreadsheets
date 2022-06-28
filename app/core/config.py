@@ -1,6 +1,7 @@
 from typing import Optional
 
-from pydantic import BaseSettings, EmailStr
+from pydantic import BaseSettings
+
 
 class Settings(BaseSettings):
     app_title: str = 'Благотворительный фонд поддержки котиков'
@@ -17,7 +18,6 @@ class Settings(BaseSettings):
     auth_provider_x509_cert_url: Optional[str] = None
     client_x509_cert_url: Optional[str] = None
     email: Optional[str] = None
-
 
     class Config:
         env_file = '.env'
