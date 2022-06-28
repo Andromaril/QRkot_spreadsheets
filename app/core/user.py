@@ -1,7 +1,7 @@
 from typing import Optional, Union
 
 from fastapi import Depends, Request
-from fastapi_users import (BaseUserManager, FastAPIUsers,
+from fastapi_users import (BaseUserManager, UUIDIDMixin, FastAPIUsers,
                            InvalidPasswordException)
 from fastapi_users.authentication import (AuthenticationBackend,
                                           BearerTransport, JWTStrategy)
@@ -32,7 +32,7 @@ auth_backend = AuthenticationBackend(
 )
 
 
-class UserManager(BaseUserManager[User, int]):
+class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
 
     async def validate_password(
         self,
