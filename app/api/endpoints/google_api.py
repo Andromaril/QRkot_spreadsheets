@@ -13,7 +13,7 @@ from app.services.google_api import spreadsheets_create, spreadsheets_update_val
 router = APIRouter()
 
 
-@router.post(
+@router.get(
     '/',
     response_model=list[dict[str, str]],
     dependencies=[Depends(current_superuser)],
