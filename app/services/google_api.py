@@ -1,3 +1,5 @@
+
+from typing import List
 from datetime import datetime, timedelta
 
 from aiogoogle import Aiogoogle
@@ -44,7 +46,7 @@ async def set_user_permissions(
 
 async def spreadsheets_update_value(
         spreadsheetid: str,
-        projects: list,
+        projects: List,
         wrapper_services: Aiogoogle
 ) -> None:
     now_date_time = datetime.now().strftime(FORMAT)
