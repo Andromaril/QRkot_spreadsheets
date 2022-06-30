@@ -1,6 +1,6 @@
-from typing import Optional, List, Dict
+from typing import Dict, List, Optional
 
-from sqlalchemy import select, asc, func
+from sqlalchemy import asc, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.crud.base import CRUDBase
