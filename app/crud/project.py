@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List, Dict
 
 from sqlalchemy import select, asc, func
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -25,7 +25,7 @@ class CRUDProject(CRUDBase):
     async def get_projectinfo_by_date(
             self,
             session: AsyncSession,
-    ) -> list[dict[str, str]]:
+    ) -> List[Dict[str, str]]:
         projects = await session.execute(select(
             CharityProject.name,
             CharityProject.description,

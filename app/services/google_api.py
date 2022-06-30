@@ -1,4 +1,5 @@
 from datetime import datetime
+from datetime import timedelta
 from aiogoogle import Aiogoogle
 from app.core.config import settings
 
@@ -53,7 +54,7 @@ async def spreadsheets_update_value(
         ['Название проекта', 'Время сбора', 'Описание']
     ]
     for res in projects:
-        new_row = [str(res['name']), str(res.timedonat), str(res['description'])]
+        new_row = [str(res['name']), str(timedelta(res.timedonat)), str(res['description'])]
         table_values.append(new_row)
 
     update_body = {
