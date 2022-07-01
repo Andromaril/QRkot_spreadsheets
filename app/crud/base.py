@@ -1,10 +1,11 @@
 from typing import Optional
 
-from app.models import CharityProject, User
-from app.schemas.project import ProjectUpdate
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.models import CharityProject, User
+from app.schemas.project import ProjectUpdate
 
 
 class CRUDBase:
