@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.endpoints import donation, google_api, project, user
+from app.api.endpoints import donation, project, user
 
 main_router = APIRouter()
 
@@ -16,9 +16,9 @@ main_router.include_router(
     tags=['Donations']
 )
 
-main_router.include_router(
-    google_api.router, prefix='/google', tags=['Google']
-)
+#main_router.include_router(
+    #google_api.router, prefix='/google', tags=['Google']
+#)
 
 main_router.include_router(
     router=user.router
