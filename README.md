@@ -11,7 +11,7 @@ git clone
 ```
 
 ```
-cd cat_charity_fund
+cd cat_charity_fund_
 ```
 
 Cоздать и активировать виртуальное окружение:
