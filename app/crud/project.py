@@ -26,12 +26,13 @@ class CRUDProject(CRUDBase):
             self,
             session: AsyncSession,
     ) -> List[Dict[str, str]]:
-        projects = await session.execute(select(
+        """получить список проетов"""
+        projects = await session.execute(select([
             CharityProject.name,
             CharityProject.description,
             (func.julianday(CharityProject.close_date) -
              func.julianday(CharityProject.create_date)
-             ).label('timedonat')).order_by(asc('timedonat')))
+             ).label('timedonat')]).order_by(asc('timedonat')))
         projects = projects.all()
         return projects
 
