@@ -1,10 +1,9 @@
 from typing import Dict, List, Optional
 
-from sqlalchemy import asc, func, select
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.crud.base import CRUDBase
 from app.models import CharityProject
+from sqlalchemy import asc, func, select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class CRUDProject(CRUDBase):
