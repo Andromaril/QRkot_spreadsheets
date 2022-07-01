@@ -22,7 +22,7 @@ class CRUDProject(CRUDBase):
         db_project = db_project.scalars().first()
         return db_project
 
-    async def get_projectinfo_by_date(
+    async def get_projects_by_completion_rate(
             self,
             session: AsyncSession,
     ) -> List[Dict[str, str]]:
