@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     database_url: str = 'sqlite+aiosqlite:///./fastapi.db'
     secret: str = 'dsjhfcbjssdbhkbjasbhjc'
     type: Optional[str] = None
-    project_id: Optional[str] = None
+    project_id: str
     private_key_id: Optional[str] = None
     private_key: Optional[str] = None
     client_email: Optional[str] = None
