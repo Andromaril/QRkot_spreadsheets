@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.endpoints import donation, google_api, project, user
+from app.api import donation, google_api, project, user
 
 main_router = APIRouter()
 
